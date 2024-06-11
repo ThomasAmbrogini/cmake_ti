@@ -240,5 +240,11 @@ section11.output_section.create(1);
 section11.output_section[0].$name     = ".bss.nocache";
 section11.output_section[0].alignment = 0;
 
-
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+debug_log.uartLog.UART.RXD.$suggestSolution = "UART0_RXD";
+debug_log.uartLog.UART.TXD.$suggestSolution = "UART0_TXD";
 
