@@ -12,7 +12,7 @@ MULTI_CORE_IMAGE_GEN="$SYSCFG_NODE $SDK_DIR/tools/boot/multicoreImageGen/multico
 APP_IMAGE_SIGN_CMD=$SDK_DIR/tools/boot/signing/appimage_x509_cert_gen.py
 
 
-OUTNAME=build_tiarmclang/hello_world.release.out
+OUTNAME=build_separate_generated/hello_world.release.out
 BOOTIMAGE_NAME=hello_world.release.appimage
 BOOTIMAGE_NAME_XIP=hello_world.release.appimage_xip
 BOOTIMAGE_NAME_SIGNED=hello_world.release.appimage.signed

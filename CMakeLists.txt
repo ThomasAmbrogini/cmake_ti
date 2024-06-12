@@ -24,14 +24,6 @@ target_include_directories(includeDirectories
 set(SOURCES
     hello_world.c
     main.c
-    generated/ti_drivers_config.c
-    generated/ti_drivers_open_close.c
-    generated/ti_board_config.c
-    generated/ti_board_open_close.c
-    generated/ti_dpl_config.c
-    generated/ti_pinmux_config.c
-    generated/ti_power_clock_config.c
-    generated/ti_power_clock_config.c
 )
 
 add_library(linkerFlags INTERFACE)
@@ -56,9 +48,10 @@ target_link_libraries(linkerFlags INTERFACE
     "libsysbm"
     "${CMAKE_SOURCE_DIR}/generated/linker.cmd")
 
+add_subdirectory(generated)
 
 add_executable(hello_world.release ${SOURCES})
+target_link_libraries(hello_world.release PUBLIC lib_generated)
 target_link_libraries(hello_world.release PUBLIC compilerFlags 
     compilerDefinitions includeDirectories)
 target_link_libraries(hello_world.release PUBLIC linkerFlags)
-
