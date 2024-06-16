@@ -3,5 +3,6 @@
     "SDK_DIR": "$HOME/dev/ti/am64x/sdk/mcu_plus_sdk_am64x_09_02_01_05/",
     "SYSCFG_NODE": "$HOME/dev/ti/sysconfig/sysconfig_1.20.0/nodejs/node",
     "SYSCFG_CLI": "$HOME/dev/ti/sysconfig/sysconfig_1.20.0/dist/cli.js",
+    "SYSCFG_GUI": "$HOME/dev/ti/sysconfig/sysconfig_1.20.0/sysconfig_gui.sh",
     "syscfg_file_name": "example.syscfg"
 }
