@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
-project("CMake Texas R5 Hello World")
+project(hello_world
+    DESCRIPTION "CMake Texas R5 Hello World"
+    LANGUAGES C)
 
 # Compilation flags
 add_library(compilerFlags INTERFACE)
@@ -22,7 +24,7 @@ target_include_directories(includeDirectories
                             INTERFACE generated)
 
 set(SOURCES
-    hello_world.c
+    ${PROJECT_NAME}.c
     main.c
 )
 
@@ -38,7 +40,7 @@ target_link_options(linkerFlags INTERFACE
     "-Wl,--diag_suppress=10063"
     "-Wl,--ram_model"
     "-Wl,--reread_libs"
-    "-Wl,-m=hello_world.release.map"
+    "-Wl,-m=${PROJECT_NAME}.map"
 )
 target_link_libraries(linkerFlags INTERFACE 
     "freertos.am64x.r5f.ti-arm-clang.release.lib"
@@ -50,8 +52,8 @@ target_link_libraries(linkerFlags INTERFACE
 
 add_subdirectory(generated)
 
-add_executable(hello_world.release ${SOURCES})
-target_link_libraries(hello_world.release PUBLIC lib_generated)
-target_link_libraries(hello_world.release PUBLIC compilerFlags 
+add_executable(${PROJECT_NAME} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} PUBLIC lib_generated)
+target_link_libraries(${PROJECT_NAME} PUBLIC compilerFlags 
     compilerDefinitions includeDirectories)
-target_link_libraries(hello_world.release PUBLIC linkerFlags)
+target_link_libraries(${PROJECT_NAME} PUBLIC linkerFlags)
